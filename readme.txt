@@ -2,7 +2,7 @@
 Contributors: Techgasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, weather, forecast, weather forecast, 3 days forecast, clouds, celsius, fahrenheit
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: 4.3.6
 License: GPLv2 or later
 
