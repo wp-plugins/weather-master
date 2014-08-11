@@ -1,9 +1,9 @@
 === Weather Master ===
 Contributors: Techgasp
-Tags: wordpress, plugin, widget, shortcode, techgasp, weather, forecast, weather forecast, 3 days forecast, clouds, celsius, fahrenheit
+Tags: wordpress, plugin, widget, shortcode, techgasp, weather, forecast, weather forecast, geo location, clouds, celsius, fahrenheit
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 4.3.6
+Tested up to: 3.9.2
+Stable tag: 4.3.7
 License: GPLv2 or later
 
 Weather Master is the heavy duty, professional wordpress weather plugin. Just like on TV.
@@ -18,6 +18,8 @@ Weather Master is fully Mobile Responsive. Packed with widgets to publish in you
 Accurate, Real-Time Weather Information Forecasts "on click" the gorgeous forecast icons. According to the selectable weather detail level it will also display real time clouds overlays.
 
 Built for news agencies, Weather Master is an innovative way of displaying weather by city level, state level or country level... just like on TV.
+
+Now packed with Geo Location (GeoLocation), provide weather info automatically to each user according to user location. This feature depends of the user browser capability of parsing it's location.
 
 Fast page load times and no conflicts or errors, Weather Master is 100% SEO Ready to improve your wordpress google rank.
 
@@ -67,6 +69,7 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 * Includes Country Level Weather detail
 * Option to custom change the weather level detail. Example worldwide, 2 cities, 2 states, etc.
 * Includes Real Time Clouds display
+* Includes Geo Location. Provide weather info automatically to each user according to user location. This feature depends of the user browser capability of parsing it's location.
 
 
 * TechGasp Shortcode Framework v3
@@ -129,9 +132,13 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 6. Weather Master Advanced Responsive Widget, Real-Time Clouds Display
 7. Shortcode inside pages and posts. Shortcode framework implementation
 8. Weather Master Administrator Dashboard Widget
+9. Weather Master Advanced Responsive Widget, Geo Location (GeoLocation)
 
 
 == Changelog ==
+
+= 4.3.7 =
+* Adding GeoLocation passed from user browser
 
 = 4.3.6 =
 * TechGasp Plugin Framework v3 Improvements and Upgrades
