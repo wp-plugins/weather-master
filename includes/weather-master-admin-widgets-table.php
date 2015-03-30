@@ -19,8 +19,8 @@ class weather_master_admin_widgets_table extends WP_List_Table {
 
 	<tfoot>
 		<tr>
-			<th class="manage-column column-columnname" scope="col" width="300"><a class="button-primary" href="/wp-admin/widgets.php" title="To Widgets Page" style="float:left;">To Widgets Page</a></p></th>
-			<th class="manage-column column-columnname" scope="col"><a class="button-primary" href="/wp-admin/widgets.php" title="To Widgets Page" style="float:right;">To Widgets Page</a></p></th>
+			<th class="manage-column column-columnname" scope="col" width="300"><a class="button-primary" href="<?php echo get_site_url(); ?>/wp-admin/widgets.php" title="To Widgets Page" style="float:left;">To Widgets Page</a></p></th>
+			<th class="manage-column column-columnname" scope="col"><a class="button-primary" href="<?php echo get_site_url(); ?>/wp-admin/widgets.php" title="To Widgets Page" style="float:right;">To Widgets Page</a></p></th>
 		</tr>
 	</tfoot>
 
@@ -31,11 +31,19 @@ class weather_master_admin_widgets_table extends WP_List_Table {
 		</tr>
 		<tr>
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-widget-advanced.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="135px" style="padding:5px;"/></td>
-			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Advanced Widget</h3><p>This is the "top of the line" business news type of weather for Wordpress. <b>Fully Mobile Responsive</b>, this widget was specially designed to grant you full control over all weather options, easily customizable.</p><p>Check Add-Ons Page.</p></td>
+			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Advanced Widget</h3><p>This is the "top of the line" business news type of weather for Wordpress. <b>Fully Mobile Responsive</b>, this widget was specially designed to grant you full control over all weather options, easily customizable.</p><p>Check Add-ons page.</p></td>
+		</tr>
+		<tr class="alternate">
+			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-widget-current.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="135px" style="padding:5px;"/></td>
+			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Current Weather Widget</h3><p>Displays weather for any location on Earth including over 200,000 cities. Easy to use, fast loading and packed with gorgeous Android HTC Weather Icons.</p><p>Check Add-ons page.</p></td>
+		</tr>
+		<tr>
+			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-widget-forecast.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="135px" style="padding:5px;"/></td>
+			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Forecast Widget</h3><p>Provides 7 days of weather forecast from over 200,000 cities. Packed with gorgeous Android HTC Weather Icons.</p><p>Check Add-ons page.</p></td>
 		</tr>
 		<tr class="alternate">
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-widget-dashboard.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="135px" style="padding:5px;"/></td>
-			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Administrator Dashboard Widget</h3><p>Cool Administrator Widget to keep track of the weather outside while you work on your wordpress. Small system trace.</p><p>Check Add-Ons Page.</p></td>
+			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Administrator Dashboard Widget</h3><p>Cool Administrator Widget to keep track of the weather outside while you work on your wordpress. Small system trace.</p><p>Check Add-ons page.</p></td>
 		</tr>
 		<tr>
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-admin-widget-blank.png', __FILE__); ?>" alt="<?php echo get_option('amazon_master_name'); ?>" align="left" width="300px" height="135px" style="padding:5px;"/></td>

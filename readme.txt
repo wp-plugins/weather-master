@@ -2,8 +2,8 @@
 Contributors: Techgasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, weather, forecast, weather forecast, geo location, clouds, celsius, fahrenheit
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 4.3.7
+Tested up to: 4.1.1
+Stable tag: 4.4.1.4
 License: GPLv2 or later
 
 Weather Master is the heavy duty, professional wordpress weather plugin. Just like on TV.
@@ -71,6 +71,24 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 * Includes Real Time Clouds display
 * Includes Geo Location. Provide weather info automatically to each user according to user location. This feature depends of the user browser capability of parsing it's location.
 
+* Weather Master Current Weather Widget
+* Optional display of Full Weather Link
+* Supports Metric or Imperial units
+* Displays weather for any location on Earth including over 200,000 cities and 40.000 weather stations
+* Packed with gorgeous Android HTC Weather Icons and image labels
+* Displays current Temperature plus High and Low Temperature
+* Displays current Humidity Percentage
+* Displays current Wind Speed, Gusts, direction and degrees
+* Displays current Weather Pressure
+* Optional display of Full Weather Link
+
+* Weather Master Forecast Widget
+* Supports Metric or Imperial units
+* Provides 7 days of weather forecast from over 200,000 cities
+* Packed with gorgeous Android HTC Weather Icons and image labels
+* Displays Location and Current Temperature
+* Displays Weekdays with Temperature and Weather Forecast
+* Optional display of Full Weather Link
 
 * TechGasp Shortcode Framework v3
 * Universal Shortcode for all pages and posts, same Shortcode applies to all pages and posts. Option to Automatically add the shortcode to all pages and posts or manually add the pre-built shortcode individually per page or post. Option to automatically only show the shortcode in Posts and not Pages. Option to Automatically show the shortcode After the Title or After the Content.
@@ -124,18 +142,41 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 
 == Screenshots ==
 
-1. Weather Master Basic Fast Loading Widget, Celsius (metric)
-2. Weather Master Basic Fast Loading Widget, Fahrenheit
-3. Weather Master Advanced Responsive Widget, State Level Weather detail
-4. Weather Master Advanced Responsive Widget, Country Level Weather detail
-5. Weather Master Advanced Responsive Widget, Custom Weather detail level
-6. Weather Master Advanced Responsive Widget, Real-Time Clouds Display
-7. Shortcode inside pages and posts. Shortcode framework implementation
-8. Weather Master Administrator Dashboard Widget
-9. Weather Master Advanced Responsive Widget, Geo Location (GeoLocation)
+1. Weather Master Basic Fast Loading Widget, Celsius (metric) & Fahrenheit (imperial)
+2. Weather Master Advanced Responsive Widget, State Level Weather detail & Country Level Weather detail & Custom Weather detail level
+3. Weather Master Advanced Responsive Widget, Real-Time Clouds Display
+4. Weather Master Current Weather, Celsius (metric) & Fahrenheit (imperial)
+5. Weather Master 7 Days Forecast, Celsius (metric) & Fahrenheit (imperial)
+6. Shortcode inside pages and posts. Shortcode framework implementation
+7. Weather Master Administrator Dashboard Widget
+8. Weather Master Advanced Responsive Widget, Geo Location (GeoLocation)
 
 
 == Changelog ==
+
+= 4.4.1.4 =
+* Getting all widget titles network ready
+* Adding Weather Master Current Weather Widget
+* Adding Weather Master Forecast Widget
+
+= 4.4.1.3 =
+* Tweaking Updater
+
+= 4.4.1.2 =
+* Adding Network Warnings and help texts
+
+= 4.4.1.1 =
+* Fixing uninstall, plugin deletion on wordpress network and multi-sites
+
+= 4.4.1.0 =
+* Fixing Shortcodes
+* Fixing Widgets
+* General clean-up and speed boost
+
+= 4.4.0 =
+* Wordpress multi-site or wordpress network ready
+* New screenshots and images
+* Weather icons tweaked
 
 = 4.3.7 =
 * Adding GeoLocation passed from user browser

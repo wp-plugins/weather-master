@@ -8,7 +8,7 @@ register_widget( 'weather_master_widget_basic' );
 
 class weather_master_widget_basic extends WP_Widget {
 	function weather_master_widget_basic() {
-	$widget_ops = array( 'classname' => 'Weather Master Basic', 'description' => __('Weather Master Basic Fast Loading Widget is easy to deploy and uses the latest weather forecast information. ', 'weather_master') );
+	$widget_ops = array( 'classname' => 'Weather Master Basic', 'description' => __('Weather Master Basic Fast Loading Widget is easy to deploy and uses the latest weather forecast information.', 'weather_master') );
 	$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'weather_master_widget_basic' );
 	$this->WP_Widget( 'weather_master_widget_basic', __('Weather Master Basic', 'weather_master'), $widget_ops, $control_ops );
 	}
@@ -35,9 +35,17 @@ class weather_master_widget_basic extends WP_Widget {
 		// Display the widget title
 	if ( $weather_title ){
 		if (empty ($weather_title_new)){
-		$weather_title_new = get_option('weather_master_name');
-		}
+			if(is_multisite()){
+			$weather_title_new = get_site_option('weather_master_name');
+			}
+			else{
+			$weather_title_new = get_option('weather_master_name');
+			}
 		echo $before_title . $weather_title_new . $after_title;
+		}
+		else{
+		echo $before_title . $weather_title_new . $after_title;
+		}
 	}
 	else{
 	}
@@ -59,7 +67,8 @@ class weather_master_widget_basic extends WP_Widget {
 		else{
 			$weather_master_weather_temp_choice = "FAHRENHEIT";
 		}
-		echo '<div id="map_weather_basic" style="width:auto; height:'.$weather_height.'px;"></div>' .
+		echo '<style>#map_weather_basic img{max-width:none; background:none;}</style>' .
+		'<div id="map_weather_basic" style="width:auto; height:'.$weather_height.'px;"></div>' .
 		'<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>' .
 		'<script type="text/javascript">' .
 		'function initialize() {
@@ -157,7 +166,7 @@ class weather_master_widget_basic extends WP_Widget {
 	<div class="description">Example <b>-117.228778</b>. Check below instructions.</div>
 	</p>
 	<p>
-	<div class="description">Get Coordinates <a href="http://maps.google.com" target="_blank">Google Maps</a>. Right-click on the desired spot on the map to bring up a menu with options. Click What's here to get the latitude and longitude coordinates. Try to get coordinates roughly from the center of your city, state or country.</div>
+	<div class="description"><a href="http://maps.google.com" target="_blank">Get Weather Coordinates</a>. Right-click on the desired spot on the map to bring up a menu with options. Click What's here to get the latitude and longitude coordinates. Try to get coordinates roughly from the center of your city, state or country.</div>
 	<div class="description"><a href="http://wordpress.techgasp.com/weather-master-documentation/" target="_blank">More about these settings</a>.</div>
 	</p>
 <div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>

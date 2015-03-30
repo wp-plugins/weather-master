@@ -1,23 +1,14 @@
 <?php
-if( is_multisite() ) {
-function menu_multi_weather_master_admin(){
-// Create menu
-add_menu_page( 'Weather Master', 'Weather Master', 'manage_options', 'weather-master', 'weather_master_admin', plugins_url( 'weather-master/images/techgasp-minilogo-16.png' ) );
-}
-}
-else {
-// Create menu
 function menu_single_weather_master_admin(){
 if ( is_admin() )
 add_menu_page( 'Weather Master', 'Weather Master', 'manage_options', 'weather-master', 'weather_master_admin', plugins_url( 'weather-master/images/techgasp-minilogo-16.png' ) );
 }
-}
-
 		///////////////////////
 		// WORDPRESS ACTIONS //
 		///////////////////////
 		if( is_multisite() ) {
-		add_action( 'network_admin_menu', 'menu_multi_weather_master_admin' );
+		add_action( 'network_admin_menu', 'menu_single_weather_master_admin' );
+		add_action( 'admin_menu', 'menu_single_weather_master_admin' );
 		}
 		else {
 		add_action( 'admin_menu', 'menu_single_weather_master_admin' );
@@ -63,7 +54,7 @@ $wp_list_table->display();
 
 <p>
 <a class="button-secondary" href="http://wordpress.techgasp.com" target="_blank" title="Visit Website">More TechGasp Plugins</a>
-<a class="button-secondary" href="http://wordpress.techgasp.com/support/" target="_blank" title="Facebook Page">TechGasp Support</a>
+<a class="button-secondary" href="http://wordpress.techgasp.com/support/" target="_blank" title="TechGasp Support">TechGasp Support</a>
 <a class="button-primary" href="http://wordpress.techgasp.com/weather-master/" target="_blank" title="Visit Website"><?php echo get_option('weather_master_name'); ?> Info</a>
 <a class="button-primary" href="http://wordpress.techgasp.com/weather-master-documentation/" target="_blank" title="Visit Website"><?php echo get_option('weather_master_name'); ?> Documentation</a>
 <a class="button-primary" href="http://wordpress.techgasp.com/weather-master/" target="_blank" title="Visit Website">Get Add-Ons</a>
