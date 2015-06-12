@@ -16,10 +16,13 @@ class weather_master_widget_basic extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		//Save WPOptions
-		add_option('weather_master_view_basic_detail_choice', "12");
-		$weather_master_load_basic_city = "12";
-		update_option ('weather_master_load_basic_city', $weather_master_load_basic_city);
-		$weather_master_load_basic_state = "7";
+		add_option('weather_master_view_advanced_detail_choice', "6");
+		$weather_master_load_advanced_city = "6";
+		update_option ('weather_master_load_advanced_city', $weather_master_load_advanced_city);
+		$weather_master_load_advanced_state = "6";
+		update_option ('weather_master_load_advanced_state', $weather_master_load_advanced_state); 
+		$weather_master_load_basic_country = "6";
+		update_option ('weather_master_load_basic_country', $weather_master_load_basic_country);
 		//Set Tittle
 		$weather_title = isset( $instance['weather_title'] ) ? $instance['weather_title'] :false;
 		$weather_title_new = isset( $instance['weather_title_new'] ) ? $instance['weather_title_new'] :false;
@@ -27,6 +30,7 @@ class weather_master_widget_basic extends WP_Widget {
 		$weathermapsspacer ="'";
 		$show_weather_master = isset( $instance['show_weather_master'] ) ? $instance['show_weather_master'] :false;
 		$weather_master_weather_temp = isset( $instance['weather_master_weather_temp'] ) ? $instance['weather_master_weather_temp'] :false;
+		$weather_zoom = isset( $instance['weather_zoom'] ) ? $instance['weather_zoom'] :false;
 		$weather_height = isset( $instance['weather_height'] ) ? $instance['weather_height'] :false;
 		$weather_latitude = isset( $instance['weather_latitude'] ) ? $instance['weather_latitude'] :false;
 		$weather_longitude = isset( $instance['weather_longitude'] ) ? $instance['weather_longitude'] :false;
@@ -49,8 +53,13 @@ class weather_master_widget_basic extends WP_Widget {
 	}
 	else{
 	}
+
 	//Display Google Maps
 	if ( $show_weather_master ){
+		$weather_master_view_basic_detail_choice = get_option('weather_master_view_basic_detail_choice');
+		if (empty($weather_master_view_basic_detail_choice)){
+		$weather_master_view_basic_detail_choice = '6';
+		}
 		if (empty($weather_height)){
 		$weather_height = '400';
 		}
@@ -62,35 +71,152 @@ class weather_master_widget_basic extends WP_Widget {
 		}
 		//PREPARE TEMP
 		if ($weather_master_weather_temp){
-			$weather_master_weather_temp_choice = "CELSIUS";
+			$weather_master_weather_temp_choice = "metric";
+			$weather_master_weather_temp_letter = "C";
+			$weather_master_weather_speed_letter = "km/h";
 		}
 		else{
-			$weather_master_weather_temp_choice = "FAHRENHEIT";
+			$weather_master_weather_temp_choice = "imperial";
+			$weather_master_weather_temp_letter = "F";
+			$weather_master_weather_speed_letter = "mph";
 		}
-		echo '<style>#map_weather_basic img{max-width:none; background:none;}</style>' .
-		'<div id="map_weather_basic" style="width:auto; height:'.$weather_height.'px;"></div>' .
-		'<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>' .
-		'<script type="text/javascript">' .
-		'function initialize() {
-		var mapOptions = {
-		center: new google.maps.LatLng('.$weather_latitude.', '.$weather_longitude.'),
-		zoom: 12,
-		mapTypeControl: false,
-		panControl: false,
-		zoomControl: false,
-		streetViewControl: false,
-		};
-		var map_weather_basic = new google.maps.Map(document.getElementById('.$weathermapsspacer.'map_weather_basic'.$weathermapsspacer.'),
-		mapOptions);
-		var weatherLayer = new google.maps.weather.WeatherLayer({
-		temperatureUnits: google.maps.weather.TemperatureUnit.'.$weather_master_weather_temp_choice.'
-		});
-		weatherLayer.setMap(map_weather_basic);
-		var cloudLayer = new google.maps.weather.CloudLayer();
-		cloudLayer.setMap(map_weather_basic);
-		}
-		google.maps.event.addDomListener(window, '.$weathermapsspacer.'load'.$weathermapsspacer.', initialize);' .
+
+		echo '<div id="map-weather-master-wbas" style="width:auto;height:'.$weather_height.'px"></div>' .
+		'<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>' .
+		'<script>' .
+		'var map;
+  var geoJSON;
+  var request;
+  var gettingData = false;
+  function initialize() {
+    var mapOptions = {
+      zoom: 6,
+      center: new google.maps.LatLng('.$weather_latitude.','.$weather_longitude.')
+    };
+    map = new google.maps.Map(document.getElementById('.$weathermapsspacer.'map-weather-master-wbas'.$weathermapsspacer.'),
+        mapOptions);
+    // Add interaction listeners to make weather requests
+    google.maps.event.addListener(map, '.$weathermapsspacer.'idle'.$weathermapsspacer.', checkIfDataRequested);
+    // Sets up and populates the info window with details
+    map.data.addListener('.$weathermapsspacer.'click'.$weathermapsspacer.', function(event) {
+      infowindow.setContent(
+       "<img src=" + event.feature.getProperty("icon") + ">"
+       + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
+	   + "<br />" + event.feature.getProperty("weather")
+       + "<br /><strong>" + event.feature.getProperty("temperature") + "&deg;'.$weather_master_weather_temp_letter.'" + "</strong>" + " (" + event.feature.getProperty("max") + "&deg;'.$weather_master_weather_temp_letter.'" + "/" + event.feature.getProperty("min") + "&deg;'.$weather_master_weather_temp_letter.'" +")"
+	   + "<br />Wind: " + event.feature.getProperty("windSpeed") + "'.$weather_master_weather_speed_letter.'" + " Direction: " + event.feature.getProperty("windDegrees") + "&deg;"
+	   + "<br />Humidity: " + event.feature.getProperty("humidity") + "%"
+	   + "<br />Pressure: " + event.feature.getProperty("pressure") + " hpa"
+       );
+      infowindow.setOptions({
+          position:{
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng()
+          },
+          pixelOffset: {
+            width: 0,
+            height: -15
+          }
+        });
+      infowindow.open(map);
+    });
+  }
+  var checkIfDataRequested = function() {
+    // Stop extra requests being sent
+    while (gettingData === true) {
+      request.abort();
+      gettingData = false;
+    }
+    getCoords();
+  };
+  // Get the coordinates from the Map bounds
+  var getCoords = function() {
+    var bounds = map.getBounds();
+    var NE = bounds.getNorthEast();
+    var SW = bounds.getSouthWest();
+    getWeather(NE.lat(), NE.lng(), SW.lat(), SW.lng());
+  };
+  // Make the weather request
+  var getWeather = function(northLat, eastLng, southLat, westLng) {
+    gettingData = true;
+    var requestString = "http://api.openweathermap.org/data/2.5/box/city?bbox="
+                        + westLng + "," + northLat + "," //left top
+                        + eastLng + "," + southLat + "," //right bottom
+                        + map.getZoom()
+                        + "&cluster=yes&format=json"
+						+ "&units='.$weather_master_weather_temp_choice.'"
+    request = new XMLHttpRequest();
+    request.onload = proccessResults;
+    request.open("get", requestString, true);
+    request.send();
+  };
+  // Take the JSON results and proccess them
+  var proccessResults = function() {
+    console.log(this);
+    var results = JSON.parse(this.responseText);
+    if (results.list.length > 0) {
+        resetData();
+        for (var i = 0; i < results.list.length; i++) {
+          geoJSON.features.push(jsonToGeoJson(results.list[i]));
+        }
+        drawIcons(geoJSON);
+    }
+  };
+  var infowindow = new google.maps.InfoWindow();
+  // For each result that comes back, convert the data to geoJSON
+  var jsonToGeoJson = function (weatherItem) {
+    var feature = {
+      type: "Feature",
+      properties: {
+        city: weatherItem.name,
+        weather: weatherItem.weather[0].description,
+        temperature: weatherItem.main.temp,
+        min: weatherItem.main.temp_min,
+        max: weatherItem.main.temp_max,
+        humidity: weatherItem.main.humidity,
+        pressure: weatherItem.main.pressure,
+        windSpeed: weatherItem.wind.speed,
+        windDegrees: weatherItem.wind.deg,
+		icon: "http://openweathermap.org/img/w/"
+		+ weatherItem.weather[0].icon  + ".png",
+        coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
+      }
+    };
+    // Set the custom marker icon
+    map.data.setStyle(function(feature) {
+      return {
+        icon: {
+          url: feature.getProperty('.$weathermapsspacer.'icon'.$weathermapsspacer.'),
+          anchor: new google.maps.Point(25, 8)
+        }
+      };
+    });
+    // returns object
+    return feature;
+  };
+  // Add the markers to the map
+  var drawIcons = function (weather) {
+     map.data.addGeoJson(geoJSON);
+     // Set the flag to finished
+     gettingData = false;
+  };
+  // Clear data layer and geoJSON
+  var resetData = function () {
+    geoJSON = {
+      type: "FeatureCollection",
+      features: []
+    };
+    map.data.forEach(function(feature) {
+      map.data.remove(feature);
+    });
+  };
+  google.maps.event.addDomListener(window, '.$weathermapsspacer.'load'.$weathermapsspacer.', initialize);' .
 		'</script>';
+
 	}
 	else{
 	}
@@ -107,6 +233,7 @@ class weather_master_widget_basic extends WP_Widget {
 		$instance['weather_master_weather_temp'] = $new_instance['weather_master_weather_temp'];
 		$instance['weather_master_view_basic_detail_choice'] = $new_instance['weather_master_view_basic_detail_choice'];
 		update_option('weather_master_view_basic_detail_choice', $new_instance['weather_master_view_basic_detail_choice']);
+		$instance['weather_width'] = $new_instance['weather_width'];
 		$instance['weather_height'] = $new_instance['weather_height'];
 		$instance['weather_latitude'] = $new_instance['weather_latitude'];
 		$instance['weather_longitude'] = $new_instance['weather_longitude'];
@@ -139,11 +266,11 @@ class weather_master_widget_basic extends WP_Widget {
 	<input type="checkbox" <?php checked( (bool) $instance['show_weather_master'], true ); ?> id="<?php echo $this->get_field_id( 'show_weather_master' ); ?>" name="<?php echo $this->get_field_name( 'show_weather_master' ); ?>" />
 	<label for="<?php echo $this->get_field_id( 'show_weather_master' ); ?>"><b><?php _e('Activate Weather Display', 'weather_master'); ?></b></label>
 	</p>
-	</p>
+	<p>
 	<select id="<?php echo $this->get_field_id( 'weather_master_view_basic_detail_choice' ); ?>" name="<?php echo $this->get_field_name( 'weather_master_view_basic_detail_choice' ); ?>" style="width:190px">
-	<option value="<?php echo get_option('weather_master_load_basic_city'); ?>" <?php echo get_option('weather_master_view_basic_detail_choice') == '12' ? 'selected="selected"':''; ?>>City Weather Level</option>
+	<option value="<?php echo get_option('weather_master_load_basic_state'); ?>" <?php echo get_option('weather_master_view_basic_detail_choice') == '6' ? 'selected="selected"':''; ?>>State Weather Level</option>
 	</select>
-	<label for="<?php echo $this->get_field_id( 'weather_master_view_basic_detail_choice' ); ?>"><?php _e('Weather Detail Level', 'weather_master'); ?></label>
+	<label for="<?php echo $this->get_field_id( 'weather_master_view_basic_detail_choice' ); ?>"></label>
 	</p>
 	<p>
 	<input type="checkbox" <?php checked( (bool) $instance['weather_master_weather_temp'], true ); ?> id="<?php echo $this->get_field_id( 'weather_master_weather_temp' ); ?>" name="<?php echo $this->get_field_name( 'weather_master_weather_temp' ); ?>" />
@@ -153,7 +280,7 @@ class weather_master_widget_basic extends WP_Widget {
 	<p>
 	<input id="<?php echo $this->get_field_id( 'weather_height' ); ?>" name="<?php echo $this->get_field_name( 'weather_height' ); ?>" value="<?php echo $instance['weather_height']; ?>" style="width:auto;" />
 	<label for="<?php echo $this->get_field_id( 'weather_height' ); ?>"><?php _e('Plugin Height', 'weather_master'); ?></label>
-	<div class="description">Default <b>400</b>. You can play with this value, does not affect responsiveness.</div>
+	<div class="description">Default <b>400</b>or <b>empty field</b>. This value, does not affect responsiveness.</div>
 	</p>
 	<p>
 	<input id="<?php echo $this->get_field_id( 'weather_latitude' ); ?>" name="<?php echo $this->get_field_name( 'weather_latitude' ); ?>" value="<?php echo $instance['weather_latitude']; ?>" style="width:auto;" />
@@ -175,7 +302,7 @@ class weather_master_widget_basic extends WP_Widget {
 	&nbsp;
 	<b><?php echo get_option('weather_master_name'); ?> Website</b>
 	</p>
-	<p><a class="button-secondary" href="http://wordpress.techgasp.com/weather-master/" target="_blank" title="<?php echo get_option('weather_master_name'); ?> Info Page">Info Page</a> <a class="button-secondary" href="http://wordpress.techgasp.com/weather-master-documentation/" target="_blank" title="<?php echo get_option('weather_master_name'); ?> Documentation">Documentation</a> <a class="button-primary" href="http://wordpress.techgasp.com/weather-master/" target="_blank" title="Visit Website">Get Add-Ons</a></p>
+	<p><a class="button-secondary" href="http://wordpress.techgasp.com/weather-master/" target="_blank" title="<?php echo get_option('weather_master_name'); ?> Info Page">Info Page</a> <a class="button-secondary" href="http://wordpress.techgasp.com/weather-master-documentation/" target="_blank" title="<?php echo get_option('weather_master_name'); ?> Documentation">Documentation</a> <a class="button-primary" href="http://wordpress.org/plugins/weather-master/" target="_blank" title="<?php echo get_option('weather_master_name'); ?> Wordpress">RATE US *****</a></p>
 	<?php
 	}
  }

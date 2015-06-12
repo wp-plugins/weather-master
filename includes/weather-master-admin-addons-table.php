@@ -38,36 +38,41 @@ class weather_master_admin_addons_table extends WP_List_Table {
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
 		<tr class="alternate">
+			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-widget-geo.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
+			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Advanced Geo-Location Widget</h3><p>Provide weather info automatically to each user according to user location. This feature depends of the user browser capability of parsing it’s location. <b>Fully Mobile Responsive</b></p><p>Navigate to your wordpress widgets page and start using it.</p></td>
+			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
+		</tr>
+		<tr>
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-widget-current.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Current Weather Widget</h3><p>Displays weather for any location on Earth including over 200,000 cities. Easy to use, fast loading and packed with gorgeous Android HTC Weather Icons.</p><p>Navigate to your wordpress widgets page and start using it.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
-		<tr>
+		<tr class="alternate">
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-widget-forecast.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Forecast Widget</h3><p>Provides 7 days of weather forecast from over 200,000 cities. Packed with gorgeous Android HTC Weather Icons.</p><p>Navigate to your wordpress widgets page and start using it.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-widget-dashboard.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Weather Master Administrator Dashboard Widget</h3><p>Cool Administrator Widget to keep track of the weather outside while you work on your wordpress. Small system trace.</p><p>Navigate to your wordpress dashboard and start using it.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
-		<tr>
+		<tr class="alternate">
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-shortcode-in.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Individual Shortcode</h3><p>Google Maps Master uses TechGasp Wordpress Framework. The <b>Individual Shortcode</b> allows you to have a different customized shortcode in each page or post. Easy to use it can be found when you edit a page or a post under the wordpress text editor. Once you have created your shortcode, Just insert the shortcode <b>[weather-master]</b> anywhere inside that text.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-shortcode-un.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Universal Shortcode</h3><p>Google Maps Master uses TechGasp Wordpress Framework. The <b>Universal Shortcode</b> allows you to have the same shortcode across different pages or posts. Easy to use it can be found right here under the Shortcodes menu. Once you have created your shortcode, Just insert the shortcode <b>[weather-master-un]</b> anywhere inside the text of your pages or posts.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
-		<tr>
+		<tr class="alternate">
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-updater.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Advanced Updater</h3><p>The Advanced Updater allows you to easily Update / Upgrade your Advanced Plugin. You can instantly update your plugin after we release a new version with more goodies without having to wait for the nightly native wordpress updater that runs every 24/48 hours. Get it fresh, get it fast.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<td class="column-columnname" width="300" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-weathermaster-admin-addons-support.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="300px" height="139px" style="padding:5px;"/></td>
 			<td class="column-columnname"style="vertical-align:middle"><h3>Award Winning Professional Support</h3><p>Need professional help deploying this plugin? TechGasp provides 24/7 award winning professional wordpress support for all advanced version costumers and replies to support tickets usually within minutes of being received. Support Us and we will Support You.</p></td>
 			<td class="column-columnname" style="vertical-align:middle"><img src="<?php echo plugins_url('../images/techgasp-check-no.png', __FILE__); ?>" alt="<?php echo get_option('weather_master_name'); ?>" align="left" width="200px" height="121px" style="padding:5px;"/></td>

@@ -3,7 +3,7 @@ Contributors: TechGasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, weather, forecast, weather forecast, geo location, clouds, celsius, fahrenheit
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 4.4.1.5
+Stable tag: 4.4.2.0
 License: GPLv2 or later
 
 Weather Master is the heavy duty, professional wordpress weather plugin. Just like on TV.
@@ -15,7 +15,7 @@ We were asked by a major news network to develop a fast loading heavy duty weath
 
 Weather Master is fully Mobile Responsive. Packed with widgets to publish in your theme best widget areas to display weather and shortcodes (TechGasp Shortcode Framework) to insert the weather forecasts inside pages and posts.
 
-Accurate, Real-Time Weather Information Forecasts "on click" the gorgeous forecast icons. According to the selectable weather detail level it will also display real time clouds overlays.
+Accurate, Real-Time Weather Information Forecasts "on click" the gorgeous forecast icons. According to the selectable weather detail level it will also display real time weather overlays.
 
 Built for news agencies, Weather Master is an innovative way of displaying weather by city level, state level or country level... just like on TV.
 
@@ -32,6 +32,7 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 * Display, Hide or Change any Widget Title
 
 * Weather Master Basic Widget
+* Mobile Responsive
 * Minimal code for a Small system trace with extremely fast page load times
 * Easy and fast wordpress deployment
 * Real-Time Weather Forecasts
@@ -52,6 +53,7 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 * Includes City Level Weather detail
 
 * Weather Master Basic Widget
+* Mobile Responsive
 * Minimal code for a Small system trace with extremely fast page load times
 * Easy and fast wordpress deployment
 * Real-Time Weather Forecasts
@@ -67,9 +69,20 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 * Includes City Level Weather detail
 * Includes State Level Weather detail
 * Includes Country Level Weather detail
-* Option to custom change the weather level detail. Example worldwide, 2 cities, 2 states, etc.
-* Includes Real Time Clouds display
-* Includes Geo Location. Provide weather info automatically to each user according to user location. This feature depends of the user browser capability of parsing it's location.
+* Option to custom change the weather level detail to any zoom level. Example worldwide, cities, states, etc.
+* Includes 2 gorgeous Weather Icon Packs. Standard Weather Icons and TechGasp Weather Icons
+
+* Weather Master Advanced Geo-Location Widget
+* Geo Location (GeoLocation). Provide weather info automatically to each user according to user location. This feature depends of the user browser capability of parsing it’s location
+* Fully Mobile Responsive
+* Real-Time Weather Forecasts
+* Accurate Weather Forecasts if you click the forecast icon
+* Option to display Weather in Fahrenheit or Celsius (metric)
+* Includes City Level Weather detail
+* Includes State Level Weather detail
+* Includes Country Level Weather detail
+* Option to custom change the weather level detail to any zoom level. Example worldwide, cities, states, etc.
+* Includes 2 gorgeous Weather Icon Packs. Standard Weather Icons and TechGasp Weather Icons
 
 * Weather Master Current Weather Widget
 * Optional display of Full Weather Link
@@ -91,6 +104,9 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 * Optional display of Full Weather Link
 
 * TechGasp Shortcode Framework v3
+* Publish Weather professionally inside pages and posts
+* Includes 2 Packs of Weather Icons
+* Includes Geo-Location
 * Universal Shortcode for all pages and posts, same Shortcode applies to all pages and posts. Option to Automatically add the shortcode to all pages and posts or manually add the pre-built shortcode individually per page or post. Option to automatically only show the shortcode in Posts and not Pages. Option to Automatically show the shortcode After the Title or After the Content.
 * Individual Shortcode for each page or post, individual customized shortcode per page or post
 * Shortcodes allow you to professionally display your plugin inside pages and posts maintaining fast page load times and excellent Google SEO
@@ -153,6 +169,11 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 
 
 == Changelog ==
+
+= 4.4.2.0 =
+* Adding new weather maps widgets and shortcodes
+* Changing weather maps API
+* Adding Geo Location Widget
 
 = 4.4.1.5 =
 * Wordpress 4.2 ready
