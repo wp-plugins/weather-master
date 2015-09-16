@@ -10,7 +10,7 @@ class weather_master_widget_basic extends WP_Widget {
 	function weather_master_widget_basic() {
 	$widget_ops = array( 'classname' => 'Weather Master Basic', 'description' => __('Weather Master Basic Fast Loading Widget is easy to deploy and uses the latest weather forecast information.', 'weather_master') );
 	$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'weather_master_widget_basic' );
-	$this->WP_Widget( 'weather_master_widget_basic', __('Weather Master Basic', 'weather_master'), $widget_ops, $control_ops );
+	parent::__construct( 'weather_master_widget_basic', __('Weather Master Basic', 'weather_master'), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
