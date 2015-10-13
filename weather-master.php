@@ -2,7 +2,7 @@
 /**
 Plugin Name: Weather Master
 Plugin URI: http://wordpress.techgasp.com/weather-master/
-Version: 4.4.2.6
+Version: 4.4.2.7
 Author: TechGasp
 Author URI: http://wordpress.techgasp.com
 Text Domain: weather-master
@@ -27,7 +27,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 if(!class_exists('weather_master')) :
 ///////DEFINE VERSION///////
-define( 'WEATHER_MASTER_VERSION', '4.4.2.6' );
+define( 'WEATHER_MASTER_VERSION', '4.4.2.7' );
 
 global $weather_master_name;
 $weather_master_name = "Weather Master"; //pretty name

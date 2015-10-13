@@ -3,7 +3,7 @@ Contributors: TechGasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, weather, forecast, weather forecast, geo location, clouds, celsius, fahrenheit
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 4.4.2.6
+Stable tag: 4.4.2.7
 License: GPLv2 or later
 
 Weather Master is the heavy duty, professional wordpress weather plugin. Just like on TV.
@@ -169,6 +169,10 @@ Fast page load times and no conflicts or errors, Weather Master is 100% SEO Read
 
 
 == Changelog ==
+
+= 4.4.2.7 =
+* Adding individual shortcode support for custom post types
+* Fixing Current Weather and Forecast Widgets regarding non-objects
 
 = 4.4.2.6 =
 * Wordpress 4.3.1
